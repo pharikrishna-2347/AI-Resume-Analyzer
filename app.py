@@ -4,18 +4,9 @@ import fitz
 import requests
 from bs4 import BeautifulSoup
 import json
-from dotenv import load_dotenv
-import os
-# ===============================
-# CONFIG
-# ===============================
-
-load_dotenv()
-
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-ADZUNA_APP_ID = os.getenv("ADZUNA_APP_ID")
-ADZUNA_APP_KEY = os.getenv("ADZUNA_APP_KEY")
-
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+ADZUNA_APP_ID = st.secrets["ADZUNA_APP_ID"]
+ADZUNA_APP_KEY = st.secrets["ADZUNA_APP_KEY"]
 genai.configure(api_key=GEMINI_API_KEY)
 
 model = genai.GenerativeModel("gemini-2.5-flash")
